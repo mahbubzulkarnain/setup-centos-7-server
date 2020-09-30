@@ -7,4 +7,4 @@ sudo yum install docker-ce -y
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo yum install iscsi-initiator-utils -y
-sudo docker run -d --restart=unless-stopped -p 8080:80 -p 8443:443 rancher/rancher:stable
+sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/rancher:stable
