@@ -1,0 +1,23 @@
+# If you intened to deploy Kubernetes in an air-gapped environment,
+# please consult the documentation on how to configure custom RKE images.
+nodes:
+- address: 10.130.0.3
+  role:
+  - controlplane
+  - etcd
+  hostname_override: rke-master-01
+  user: rke
+- address: 10.130.0.4
+  role:
+  - worker
+  hostname_override: rke-worker-01
+  user: rke
+services:
+  etcd:
+    snapshot: true
+    retention: 24h
+    creation: 6h
+    backup_config: 
+      interval_hours: 12
+      retention: 6
+ssh_key_path: ~/.ssh/id_rsa
